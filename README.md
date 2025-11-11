@@ -8,10 +8,6 @@
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/langchainjs-for-beginners.svg)](https://github.com/microsoft/langchainjs-for-beginners/pulls/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/langchainjs-for-beginners.svg?style=social&label=Watch)](https://github.com/microsoft/langchainjs-for-beginners/)
-[![GitHub forks](https://img.shields.io/github/forks/microsoft/langchainjs-for-beginners.svg?style=social&label=Fork)](https://github.com/microsoft/langchainjs-for-beginners/)
-[![GitHub stars](https://img.shields.io/github/stars/microsoft/langchainjs-for-beginners.svg?style=social&label=Star)](https://github.com/microsoft/langchainjs-for-beginners/)
-
 ## 🚀 Welcome!
 
 Welcome to **LangChain.js for Beginners**, your hands-on guide to building AI-powered applications with LangChain.js and TypeScript.
