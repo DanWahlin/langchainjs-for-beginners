@@ -27,7 +27,7 @@ This course takes you from zero to building robust AI applications:
 
 **By the end**, you'll have a solid understanding of LangChain.js and understand how to build real AI applications you can deploy!
 
-> **🎯 Teaching Approach:** This course uses an agent-first progression—teaching tools, then agents, then combining them with document retrieval for intelligent RAG systems. This mirrors how modern production AI systems are built.
+> **🎯 Teaching Approach:** This course uses an agent-first progression. You'll learn about tools, then agents, then combine them with document retrieval to build agentic RAG systems. This mirrors how modern production AI systems are built.
 
 > [!TIP]
 > **New to AI development?** Check out our companion course [**Generative AI with JavaScript**](https://github.com/microsoft/generative-ai-with-javascript) to learn AI fundamentals first!
