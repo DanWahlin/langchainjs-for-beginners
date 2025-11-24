@@ -859,7 +859,7 @@ You've progressed from basics to robust AI concepts:
 - 🔧 **Production Deployment**: Learn about monitoring, scaling, and deploying AI apps in production
 - 🌐 **Explore More MCP Servers**: Connect to GitHub, databases, calendars, and other services
 - 🎓 **Explore LangGraph**: Learn about [LangGraph](https://docs.langchain.com/oss/javascript/langgraph/quickstart) - a low-level orchestration framework and runtime for building, managing, and deploying long-running, stateful agents.
-- 💡 **Join the Community**: Share your projects and learn from others in the [AI Foundry Discord](https://aka.ms/foundry/discord)
+- 💡 **Join the Community**: Share your projects and learn from others in the [Microsoft Foundry Discord](https://aka.ms/foundry/discord)
 
 **What you can build now**:
 - 📖 Documentation assistants that answer questions about your codebase
@@ -882,8 +882,8 @@ The possibilities are endless—you have all the core skills to build intelligen
 
 If you get stuck or have any questions about building AI apps, join:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Microsoft_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 If you have product feedback or errors while building visit:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)

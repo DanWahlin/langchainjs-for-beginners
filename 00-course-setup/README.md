@@ -1,6 +1,6 @@
 # Course Setup
 
-Welcome! Before we dive into building AI applications with LangChain.js, let's get your development environment ready. This chapter walks you through installing Node.js, setting up your GitHub token for free AI model access (you can also use Azure AI Foundry), and configuring your project environment. By the end, you'll have everything you need to start building with LangChain.js.
+Welcome! Before we dive into building AI applications with LangChain.js, let's get your development environment ready. This chapter walks you through installing Node.js, setting up your GitHub token for free AI model access (you can also use Microsoft Foundry), and configuring your project environment. By the end, you'll have everything you need to start building with LangChain.js.
 
 ## Prerequisites
 
@@ -169,9 +169,9 @@ AI_MODEL=gpt-5-mini
 
 **Replace `ghp_your_github_token_here` with your actual GitHub token!**
 
-**Alternative: Azure AI Foundry**
+**Alternative: Microsoft Foundry**
 
-If you have an Azure subscription, you can use Azure AI Foundry for production-grade AI applications. See the [Azure Setup Appendix](./APPENDIX.md#azure-ai-foundry-setup) for detailed instructions on deploying models and configuring your environment.
+If you have an Azure subscription, you can use Microsoft Foundry for production-grade AI applications. See the [Azure Setup Appendix](./APPENDIX.md#microsoft-foundry-setup) for detailed instructions on deploying models and configuring your environment.
 
 ### Step 5: Test Your Setup
 
@@ -220,8 +220,8 @@ Before starting the course, make sure you have:
 - [ ] Node.js LTS installed
 - [ ] Project cloned and dependencies installed (`npm install`)
 - [ ] tsx installed globally (`npm install -g tsx`)
-- [ ] GitHub Personal Access Token created if you're using GitHub Models. If you're using Azure AI Foundry, ensure your models are deployed and you have your API key and endpoint.
-- [ ] `.env` file configured with your token (or key if using Azure AI Foundry) and endpoint
+- [ ] GitHub Personal Access Token created if you're using GitHub Models. If you're using Microsoft Foundry, ensure your models are deployed and you have your API key and endpoint.
+- [ ] `.env` file configured with your token (or key if using Microsoft Foundry) and endpoint
 - [ ] Test script runs successfully
 - [ ] VS Code installed (optional but recommended)
 
@@ -253,11 +253,11 @@ You're all set! Time to build your first AI application.
 
 If you get stuck or have any questions about building AI apps, join:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Microsoft_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 If you have product feedback or errors while building visit:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 If you run into issues with the course materials, please open an issue in the GitHub repo:
 

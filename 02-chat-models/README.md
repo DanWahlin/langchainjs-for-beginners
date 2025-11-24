@@ -348,7 +348,7 @@ You can control how the AI responds by adjusting parameters. These can vary by p
 
 > **⚠️ Provider and Model Differences**:
 > - **GitHub Models (OpenAI)**: Supports 0.0 to 2.0 for most models
-> - **Azure AI Foundry**: Generally limits temperature to 0.0-1.0 depending upon the model
+> - **Microsoft Foundry**: Generally limits temperature to 0.0-1.0 depending upon the model
 > - **Some models** (like gpt-5-mini): May only support the default temperature value (1) and reject other values
 >
 > The temperature demo code includes error handling to gracefully skip unsupported values, so you can run it with any model without crashes.
@@ -862,11 +862,11 @@ Next, you'll learn how to control those conversations with prompts and get struc
 
 If you get stuck or have any questions about building AI apps, join:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Microsoft_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 If you have product feedback or errors while building visit:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 ---
 

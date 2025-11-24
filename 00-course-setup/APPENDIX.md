@@ -1,16 +1,16 @@
 # Appendix
 
-## Azure AI Foundry Setup
+## Microsoft Foundry Setup
 
-While GitHub Models is a great option for many users, if you have an Azure subscription, you can use Azure AI Foundry for production-grade AI applications with enterprise features. This appendix will guide you through setting up an Azure AI Foundry project and deploying models for this course.
+While GitHub Models is a great option for many users, if you have an Azure subscription, you can use Microsoft Foundry for production-grade AI applications with enterprise features. This appendix will guide you through setting up a Microsoft Foundry project and deploying models for this course.
 
 ## Step-by-Step Setup
 
-You can follow the steps below to deploy models in Azure AI Foundry or visit the [Deploy an Azure OpenAI model quickstart](https://learn.microsoft.com/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry) which will also walk you through the process.
+You can follow the steps below to deploy models in Microsoft Foundry or visit the [Deploy an Azure OpenAI model quickstart](https://learn.microsoft.com/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry) which will also walk you through the process.
 
-### 1. Create an Azure AI Foundry Project
+### 1. Create a Microsoft Foundry Project
 
-1. Visit the [Azure AI Foundry portal](https://ai.azure.com/)
+1. Visit the [Microsoft Foundry portal](https://ai.azure.com/)
 2. Sign in with your Azure account
 3. Click **+ New project**
 4. Fill in the project details:
@@ -69,7 +69,7 @@ After deploying your models, you need two pieces of information:
 Ensure that you add `/openai/v1` to the end of your endpoint URL.
 
 ```bash
-# Azure AI Foundry Configuration
+# Microsoft Foundry Configuration
 AI_API_KEY=your_azure_api_key_here
 AI_ENDPOINT=https://your-resource.openai.azure.com/openai/v1
 AI_MODEL=gpt-5-mini
@@ -77,7 +77,7 @@ AI_MODEL=gpt-5-mini
 
 **Replace `your_azure_api_key_here` with your actual Azure API key and update the endpoint URL!**
 
-### Why Azure AI Foundry?
+### Why Microsoft Foundry?
 
 - ✅ **Production-ready**: Enterprise-grade infrastructure and SLAs
 - ✅ **Higher limits**: More requests per minute than free tiers
@@ -122,4 +122,4 @@ Once you've completed the Azure setup, return to the [main setup guide](./README
 **Solution**: GitHub Models have rate limits. If you hit them:
 - Wait a few minutes
 - The limits reset quickly
-- You can use Azure AI Foundry instead if you went through the optional setup above
+- You can use Microsoft Foundry instead if you went through the optional setup above

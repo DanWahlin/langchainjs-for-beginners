@@ -5,7 +5,7 @@
 This is **LangChain.js for Beginners** - a comprehensive educational course teaching AI application development with LangChain.js and TypeScript. The repository contains 8 sections (00-07) covering everything from basic chat models to autonomous agents, RAG systems, and Model Context Protocol (MCP) integration.
 
 **Architecture**: Educational course structure with 71+ runnable TypeScript examples organized by topic
-**Key Technologies**: LangChain.js, TypeScript, tsx, Node.js >=22.0.0 (LTS), MCP, OpenAI/Azure AI/Anthropic
+**Key Technologies**: LangChain.js, TypeScript, tsx, Node.js >=22.0.0 (LTS), MCP, OpenAI/Microsoft Foundry/Anthropic
 **Purpose**: Teaching developers how to build AI-powered applications using an agent-first philosophy
 **Teaching Approach**: Agent-first (Tools → Agents → Documents → Agentic RAG)
 
@@ -67,7 +67,7 @@ AI_MODEL=gpt-5-mini
 AI_EMBEDDING_MODEL=text-embedding-3-small
 ```
 
-**Azure AI Foundry** (Production):
+**Microsoft Foundry** (Production):
 ```bash
 AI_API_KEY=your_azure_openai_api_key
 AI_ENDPOINT=https://your-resource.openai.azure.com/openai/v1
@@ -514,4 +514,4 @@ git commit -m "Your message validate-examples"  # Triggers GitHub Actions
 - [Course README](./README.md)
 - [Course Glossary](./GLOSSARY.md)
 - [GitHub Models](https://github.com/marketplace/models)
-- [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/)
+- [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/)

@@ -390,11 +390,11 @@ Response: Recursion is when a function calls itself to solve a problem by breaki
 
 ---
 
-## 🔄 Switching to Azure AI Foundry
+## 🔄 Switching to Microsoft Foundry
 
-**Want to use Azure AI Foundry instead of GitHub Models?** All the code you just wrote will work with zero changes!
+**Want to use Microsoft Foundry instead of GitHub Models?** All the code you just wrote will work with zero changes!
 
-Simply update your `.env` file with your Azure endpoint and API key. For detailed setup instructions, see the [Azure AI Foundry Setup](../00-course-setup/APPENDIX.md#azure-ai-foundry-setup).
+Simply update your `.env` file with your Azure endpoint and API key. For detailed setup instructions, see the [Microsoft Foundry Setup](../00-course-setup/APPENDIX.md#microsoft-foundry-setup).
 
 ---
 
@@ -411,7 +411,7 @@ graph LR
     A --> F[Memory]
     B --> G[Provider Abstraction]
     G --> H[GitHub Models]
-    G --> I[Azure AI Foundry]
+    G --> I[Microsoft Foundry]
 ```
 
 *These concepts work together to create powerful AI applications. You'll explore each in depth throughout the course.*
@@ -451,7 +451,7 @@ Let's review what you learned:
 - **LangChain.js is an abstraction layer** - It provides a consistent interface across different LLM providers
 - **Built on composable components** - Models, prompts, tools, agents, and memory work together
 - **GitHub Models offers free access** - Perfect for learning and prototyping
-- **Azure AI Foundry is production-ready** - Switch anytime by changing the environment variables in your `.env` file
+- **Microsoft Foundry is production-ready** - Switch anytime by changing the environment variables in your `.env` file
 - **Messages have types** - SystemMessage, HumanMessage, and AIMessage serve different purposes
 
 ---
@@ -494,8 +494,8 @@ You've laid the foundation in this chapter. Next, you'll start with basic AI con
 
 If you get stuck or have any questions about building AI apps, join:
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![Microsoft Foundry Discord](https://img.shields.io/badge/Discord-Microsoft_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 If you have product feedback or errors while building visit:
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
