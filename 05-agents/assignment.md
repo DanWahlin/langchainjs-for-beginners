@@ -72,11 +72,13 @@ import "dotenv/config";
 //    - query: z.string().describe("The search query...")
 
 // 3. Define your calculator tool using tool():
-//    - Sanitize the input expression (remove unsafe characters)
-//    - Use Function() to evaluate: Function(`"use strict"; return (${sanitized})`)()
+//    - Use the mathjs library for safe expression evaluation
+//    - Install with: npm install mathjs
+//    - Example usage:
+//      import { evaluate } from "mathjs";
+//      const result = evaluate(expression); // e.g., evaluate("14000000 * 2")
 //    - Return result as a string
 //    - Handle errors with try/catch
-//    - Note: A safer approach would be to use a library like mathjs for evaluation
 //
 //    Schema should have:
 //    - expression: z.string().describe("The mathematical expression...")
@@ -87,7 +89,10 @@ import "dotenv/config";
 //    const agent = createAgent({
 //      model,
 //      tools: [searchTool, calculatorTool],
+//      systemPrompt: "You are a helpful assistant... Do NOT ask clarifying questions - proceed with reasonable assumptions.",
 //    });
+//    Note: The systemPrompt helps guide agent behavior - without it, agents may ask
+//    unnecessary clarifying questions instead of completing the task.
 
 // 6. Test with multi-step queries in a loop:
 //    const queries = ["What is the population of Tokyo multiplied by 2?", ...];

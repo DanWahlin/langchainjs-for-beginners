@@ -7,6 +7,7 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { createAgent, HumanMessage, AIMessage, tool } from "langchain";
 import * as z from "zod";
+import { evaluate } from "mathjs";
 import "dotenv/config";
 
 // Tool 1: Search
@@ -38,12 +39,11 @@ const searchTool = tool(
   }
 );
 
-// Tool 2: Calculator
+// Tool 2: Calculator - uses mathjs for safe expression evaluation
 const calculatorTool = tool(
   async (input) => {
     try {
-      const sanitized = input.expression.replace(/[^0-9+\-*/().\s]/g, "");
-      const result = Function(`"use strict"; return (${sanitized})`)();
+      const result = evaluate(input.expression);
       return String(result);
     } catch (error) {
       return `Error: ${error instanceof Error ? error.message : "Calculation failed"}`;
@@ -153,12 +153,16 @@ async function main() {
   const agent = createAgent({
     model,
     tools: [searchTool, calculatorTool, unitConverter, comparisonTool],
+    systemPrompt:
+      "You are a helpful assistant that completes tasks using the available tools. " +
+      "Do NOT ask clarifying questions - make reasonable assumptions and proceed with the task. " +
+      "For population data, always use city proper figures. Execute the task immediately.",
   });
 
   // Test queries requiring multiple steps
   const queries = [
     "What's the distance from London to Paris in miles, and is that more or less than 500 miles?",
-    "Find the population of New York and Tokyo, calculate the difference, and tell me the result in millions",
+    "Find the city population of New York and Tokyo, calculate the difference, and tell me the result",
   ];
 
   for (const query of queries) {

@@ -7,6 +7,7 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { createAgent, HumanMessage, AIMessage, tool } from "langchain";
 import * as z from "zod";
+import { evaluate } from "mathjs";
 import "dotenv/config";
 
 // Search tool - simulates web search
@@ -49,12 +50,11 @@ const searchTool = tool(
   }
 );
 
-// Calculator tool
+// Calculator tool - uses mathjs for safe expression evaluation
 const calculatorTool = tool(
   async (input) => {
-    const sanitized = input.expression.replace(/[^0-9+\-*/().\s]/g, "");
     try {
-      const result = Function(`"use strict"; return (${sanitized})`)();
+      const result = evaluate(input.expression);
       return String(result);
     } catch (error) {
       return `Error calculating ${input.expression}: ${error instanceof Error ? error.message : "Unknown error"}`;
@@ -89,6 +89,10 @@ async function main() {
   const agent = createAgent({
     model,
     tools: [searchTool, calculatorTool],
+    systemPrompt:
+      "You are a helpful assistant that completes tasks using the available tools. " +
+      "Do NOT ask clarifying questions - make reasonable assumptions and proceed with the task. " +
+      "For population data, always use city proper figures. Execute the task immediately.",
   });
 
   // Test queries
