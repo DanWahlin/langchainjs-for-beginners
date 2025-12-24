@@ -16,6 +16,7 @@ By the end of this chapter, you'll be able to:
 - ✅ Give agents multiple tools and let them choose the right one
 - ✅ Use createAgent() for production-ready agent systems
 - ✅ Implement middleware patterns for agent customization
+- ✅ Use built-in middleware like summarizationMiddleware
 - ✅ Build multi-step, autonomous AI systems
 
 ---
@@ -529,6 +530,136 @@ flowchart TD
 
 ---
 
+### Example 4: Built-in Middleware (summarizationMiddleware)
+
+In addition to custom middleware, LangChain.js provides **built-in middleware** for common production scenarios. One of the most useful is `summarizationMiddleware`, which automatically summarizes long conversations to keep them within context limits.
+
+**Why use summarizationMiddleware?**
+- Long conversations can exceed model context windows
+- Summarizing older messages reduces token usage and costs
+- Maintains conversation coherence while staying within limits
+
+**Key code you'll work with:**
+```typescript
+import { createAgent, summarizationMiddleware, createMiddleware } from "langchain";
+
+// Custom logging middleware to track conversation state and show summaries
+const conversationLogger = createMiddleware({
+  name: "ConversationLogger",
+  wrapModelCall: (request, handler) => {
+    // Detect summarization by checking if message count decreased
+    // When it does, the first message contains the summary
+    console.log(`[State] Messages: ${request.messages.length}`);
+    return handler(request);
+  },
+});
+
+// Create agent with BOTH built-in and custom middleware
+const agent = createAgent({
+  model,
+  tools: [quantumResearchTool],
+  middleware: [
+    summarizationMiddleware({
+      model,                                      // Model used for summarization
+      trigger: [{ tokens: 1000 }, { messages: 8 }], // OR logic: either limit triggers
+      keep: { messages: 6 },                      // Keep enough for tool call chains
+    }),
+    conversationLogger,
+  ],
+});
+```
+
+**Configuration options:**
+- `trigger` (object | object[]) - When to summarize:
+  - Single object: ALL properties must be met (AND logic)
+    - `{ tokens: 1000, messages: 8 }` - Summarize when tokens > 1000 **AND** messages > 8
+  - Array of objects: ANY condition triggers (OR logic)
+    - `[{ tokens: 2000 }, { messages: 10 }]` - Summarize when tokens > 2000 **OR** messages > 10
+  - Properties: `tokens`, `messages`, or `fraction` (0-1 of context window)
+- `keep` - What to preserve (specify exactly ONE):
+  - `{ messages: N }` - Keep N recent messages (must preserve tool call chains!)
+  - `{ tokens: N }` - Keep N tokens worth of messages
+  - `{ fraction: 0.3 }` - Keep 30% of context (default: `{ messages: 20 }`)
+
+**Code**: [`code/04-builtin-middleware.ts`](./code/04-builtin-middleware.ts)
+**Run**: `tsx 05-agents/code/04-builtin-middleware.ts`
+
+### Expected Output
+
+When you run `tsx 05-agents/code/04-builtin-middleware.ts`, you'll see summarization in action. The summary box appears each time the condensed context is updated:
+
+```
+📚 Built-in Middleware: summarizationMiddleware Demo
+🔬 Starting quantum mechanics research session...
+────────────────────────────────────────────────────────────
+
+📝 Question 1/7 - Question 4/7
+[Messages grow: 1 → 5 → 7 → 9, Tokens: ~189 → ~764]
+[No summarization yet - thresholds not exceeded]
+────────────────────────────────────────────────────────────
+
+📝 Question 5/7
+👤 Researcher: Tell me about quantum tunneling
+  [State] 📊 Messages: 8 | Tokens: ~1011
+  [State] 🔄 Summarization occurred! Here's the condensed context:
+  ┌──────────────────────────────────────────────────────────┐
+  │ Here is a summary of the conversation to date:           │
+  │ What is quantum superposition?                           │
+  │ How does quantum entanglement work?                      │
+  │ Explain wave-particle duality                            │
+  │ What is Heisenberg's uncertainty principle?              │
+  └──────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────
+
+📝 Question 6/7
+👤 Researcher: What is the measurement problem?
+  [State] 📊 Messages: 9 | Tokens: ~1255
+  [State] 🔄 Summarization occurred! Here's the condensed context:
+  ┌──────────────────────────────────────────────────────────┐
+  │ Here is a summary of the conversation to date:           │
+  │ ...previous topics...                                    │
+  │ Tell me about quantum tunneling  ← NEW                   │
+  └──────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────
+
+📝 Question 7/7
+👤 Researcher: What are the practical applications?
+  [State] 📊 Messages: 10 | Tokens: ~1504
+  [State] 🔄 Summarization occurred! Here's the condensed context:
+  ┌──────────────────────────────────────────────────────────┐
+  │ Here is a summary of the conversation to date:           │
+  │ ...previous topics...                                    │
+  │ What is the measurement problem?  ← NEW                  │
+  └──────────────────────────────────────────────────────────┘
+────────────────────────────────────────────────────────────
+
+💡 Key Observations:
+   📚 Each response contains detailed explanations (~200-400 words)
+   📈 Without summarization, tokens would grow to 3000+
+   🔄 Summary box shows each time the condensed context updates
+   ✅ Topics accumulate in summary, preserving conversation history
+```
+
+### How It Works
+
+**summarizationMiddleware**:
+- Monitors conversation length (tokens and/or messages) as conversation grows
+- When `trigger` thresholds are exceeded, older messages are summarized
+- The `keep` parameter controls how many recent messages are preserved
+- The summary replaces older messages, maintaining context while reducing tokens
+- Works seamlessly with your custom middleware
+
+**When to use summarizationMiddleware**:
+- AI agents with detailed, text-heavy responses
+- Long-running chat sessions
+- Customer support bots with extended conversations
+- Tutorial or coaching applications
+- Any agent that may exceed context limits
+
+> **💡 Tip**: Built-in middleware like `summarizationMiddleware` handles common patterns so you can focus on custom logic specific to your application. Check the [LangChain Middleware Documentation](https://docs.langchain.com/oss/javascript/langchain/middleware/built-in) for other built-in options.
+
+---
+
 ## 🗺️ Concept Map
 
 This chapter taught you how agents use the ReAct pattern for autonomous reasoning:
@@ -554,6 +685,7 @@ graph TD
 - **createAgent() is production-ready** - Handles the ReAct loop automatically with built-in error handling
 - **Tool descriptions matter** - Clear descriptions help agents pick the right tool
 - **Middleware adds flexibility** - Plugin-style behavior for logging, error handling, dynamic model selection
+- **Built-in middleware available** - Use `summarizationMiddleware` for long conversations, combine with custom middleware
 - **Start simple, scale up** - Begin with basic agents, add middleware for production needs
 
 ---
