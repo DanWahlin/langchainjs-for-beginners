@@ -1,6 +1,6 @@
 /**
  * Text Splitting
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/02-splitting.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/02-splitting.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "How do I determine the optimal chunk size for my documents?"

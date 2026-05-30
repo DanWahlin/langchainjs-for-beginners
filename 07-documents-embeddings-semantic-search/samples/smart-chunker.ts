@@ -1,7 +1,7 @@
 /**
  * Chapter 6 Sample: Smart Chunker
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/samples/smart-chunker.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/samples/smart-chunker.ts
  */
 
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";

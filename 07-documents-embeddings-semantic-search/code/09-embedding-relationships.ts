@@ -4,7 +4,7 @@
  * This example demonstrates how embeddings capture semantic relationships
  * that can be manipulated through vector arithmetic.
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/09-embedding-relationships.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/09-embedding-relationships.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "How does vector arithmetic like 'King - Man + Woman = Queen' actually work?"

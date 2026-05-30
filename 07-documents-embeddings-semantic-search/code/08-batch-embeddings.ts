@@ -1,6 +1,6 @@
 /**
  * Batch Embeddings for Efficiency
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/08-batch-embeddings.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/08-batch-embeddings.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "What's the maximum batch size I can use with embedDocuments?"

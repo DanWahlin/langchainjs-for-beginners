@@ -57,6 +57,33 @@ export const SKIP_FILES = [
 // Set to 2 minutes to accommodate files with multiple sequential AI calls
 // (e.g., email-generator.ts and prompt-builder.ts which make 3-4 AI calls each)
 export const TIMEOUT_MS = 120000; // 120 seconds (2 minutes)
+const DEFAULT_VALIDATION_RETRIES = 2;
+const RETRYABLE_ERROR_PATTERNS = [
+  "Unavailable model:",
+  "unavailable_model",
+  "rate_limit_exceeded",
+  "429",
+];
+
+function getValidationRetries(): number {
+  const value = process.env.VALIDATION_RETRIES;
+  if (!value) return DEFAULT_VALIDATION_RETRIES;
+
+  const parsed = Number.parseInt(value, 10);
+  if (Number.isNaN(parsed) || parsed < 0) {
+    throw new Error("VALIDATION_RETRIES must be a non-negative integer");
+  }
+
+  return parsed;
+}
+
+function isRetryableError(error?: string): boolean {
+  return Boolean(error && RETRYABLE_ERROR_PATTERNS.some((pattern) => error.includes(pattern)));
+}
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 /**
  * Recursively find all TypeScript files in a directory
@@ -205,9 +232,9 @@ export function runServerExample(
 }
 
 /**
- * Run a regular code example
+ * Run a regular code example once
  */
-export function runExample(filePath: string): Promise<TestResult> {
+function runExampleOnce(filePath: string): Promise<TestResult> {
   return new Promise((resolve) => {
     const startTime = Date.now();
     const interactiveInput = getInteractiveInput(filePath);
@@ -284,6 +311,30 @@ export function runExample(filePath: string): Promise<TestResult> {
       });
     });
   });
+}
+
+/**
+ * Run a regular code example
+ */
+export async function runExample(filePath: string): Promise<TestResult> {
+  const maxRetries = getValidationRetries();
+  const startTime = Date.now();
+  let result = await runExampleOnce(filePath);
+  let attempt = 0;
+
+  while (!result.success && attempt < maxRetries && isRetryableError(result.error)) {
+    attempt++;
+    await delay(1000 * attempt);
+    result = await runExampleOnce(filePath);
+  }
+
+  return {
+    ...result,
+    duration: Date.now() - startTime,
+    error: result.success || attempt === 0
+      ? result.error
+      : `${result.error}\nRetried ${attempt} time${attempt === 1 ? "" : "s"} after transient provider error.`,
+  };
 }
 
 /**

@@ -1,6 +1,6 @@
 /**
  * Vector Store and Semantic Search
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/06-vector-store.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/06-vector-store.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "What's the difference between MemoryVectorStore and persistent stores like Pinecone?"

@@ -1,7 +1,7 @@
 /**
  * Chapter 6 Sample: Embedding Visualizer
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/samples/embedding-visualizer.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/samples/embedding-visualizer.ts
  */
 
 import { OpenAIEmbeddings } from "@langchain/openai";

@@ -1,7 +1,7 @@
 /**
  * Chapter 6 Sample: Document Organizer
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/samples/doc-organizer.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/samples/doc-organizer.ts
  */
 
 import { Document } from "@langchain/core/documents";

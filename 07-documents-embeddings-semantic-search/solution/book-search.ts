@@ -2,7 +2,7 @@
  * Chapter 6 Assignment Solution: Challenge 2
  * Semantic Book Search
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/solution/book-search.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/solution/book-search.ts
  */
 
 import { OpenAIEmbeddings } from "@langchain/openai";

@@ -1,6 +1,6 @@
 /**
  * Comparing Chunk Overlap
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/03-overlap.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/03-overlap.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "What percentage overlap is recommended for different chunk sizes?"

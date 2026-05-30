@@ -1,6 +1,6 @@
 /**
  * Basic Embeddings
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/05-basic-embeddings.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/05-basic-embeddings.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "What is the cosineSimilarity function doing mathematically?"

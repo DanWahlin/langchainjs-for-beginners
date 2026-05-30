@@ -1,7 +1,7 @@
 /**
  * Chapter 6 Sample: Multilingual Search
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/samples/multilingual-search.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/samples/multilingual-search.ts
  */
 
 import { OpenAIEmbeddings } from "@langchain/openai";

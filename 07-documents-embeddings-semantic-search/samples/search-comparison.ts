@@ -1,7 +1,7 @@
 /**
  * Chapter 6 Sample: Keyword vs Semantic Comparison
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/samples/search-comparison.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/samples/search-comparison.ts
  */
 
 import { OpenAIEmbeddings } from "@langchain/openai";

@@ -1,6 +1,6 @@
 /**
  * Working with Metadata
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/04-metadata.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/04-metadata.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "How can I filter search results by metadata values like category or date?"

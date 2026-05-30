@@ -1,6 +1,6 @@
 /**
  * Similarity Search with Scores
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/07-similarity-scores.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/07-similarity-scores.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "What similarity score threshold should I use to filter out irrelevant results?"

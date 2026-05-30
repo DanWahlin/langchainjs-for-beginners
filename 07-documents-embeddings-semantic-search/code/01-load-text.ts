@@ -1,6 +1,6 @@
 /**
  * Loading Text Files
- * Run: npx tsx 06-documents-embeddings-semantic-search/code/01-load-text.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/code/01-load-text.ts
  *
  * 🤖 Try asking GitHub Copilot Chat (https://github.com/features/copilot):
  * - "How can I load PDF files instead of text files using LangChain?"

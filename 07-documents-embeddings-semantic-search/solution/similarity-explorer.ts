@@ -2,7 +2,7 @@
  * Chapter 6 Assignment Solution: Challenge 1
  * Similarity Explorer
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/solution/similarity-explorer.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/solution/similarity-explorer.ts
  */
 
 import { OpenAIEmbeddings } from "@langchain/openai";

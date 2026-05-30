@@ -1,7 +1,7 @@
 /**
  * Chapter 6 Sample: Chunk Optimizer
  *
- * Run: npx tsx 06-documents-embeddings-semantic-search/samples/chunk-optimizer.ts
+ * Run: npx tsx 07-documents-embeddings-semantic-search/samples/chunk-optimizer.ts
  */
 
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";

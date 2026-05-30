@@ -1,15 +1,15 @@
 /**
  * Validate All Code Examples (Parallel)
  *
- * This script runs code examples with controlled parallelism (10 concurrent tests)
+ * This script runs code examples with controlled parallelism (4 concurrent tests by default)
  * to speed up validation while avoiding rate limiting from AI providers.
  *
  * Run: npx tsx scripts/validate-examples-parallel.ts
  *    or: npm run test:parallel
  *
  * Benefits over sequential version:
- * - ~10x faster execution (runs 10 tests at once)
- * - Still avoids rate limiting (only 10 concurrent API calls)
+ * - Faster execution than sequential validation
+ * - Still avoids rate limiting (defaults to 4 concurrent examples)
  * - Same reliability and error handling
  * - As each test completes, the next one starts immediately
  */
@@ -30,8 +30,21 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Concurrency limit - run this many tests at once
-const CONCURRENCY = 10;
+// Concurrency limit - run this many tests at once.
+// Some providers return transient "unavailable_model" errors for embeddings under high parallel load.
+const DEFAULT_CONCURRENCY = 4;
+
+function getConcurrency(): number {
+  const value = process.env.VALIDATION_CONCURRENCY;
+  if (!value) return DEFAULT_CONCURRENCY;
+
+  const parsed = Number.parseInt(value, 10);
+  if (Number.isNaN(parsed) || parsed < 1) {
+    throw new Error("VALIDATION_CONCURRENCY must be a positive integer");
+  }
+
+  return parsed;
+}
 
 /**
  * Run tests with controlled concurrency using a queue-based worker pool
@@ -110,15 +123,17 @@ async function main() {
   // Display summary
   displayTestSummary(allFiles);
 
-  console.log(`🚀 Running ${allFiles.length} examples with concurrency: ${CONCURRENCY}\n`);
-  console.log(`💡 This means ${CONCURRENCY} tests run in parallel at all times\n`);
+  const concurrency = getConcurrency();
+
+  console.log(`🚀 Running ${allFiles.length} examples with concurrency: ${concurrency}\n`);
+  console.log(`💡 This means ${concurrency} tests run in parallel at all times\n`);
   console.log(`⚡ As each test completes, the next one starts immediately\n`);
   console.log("=" + "=".repeat(79) + "\n");
 
   const startTime = Date.now();
 
   // Run tests with controlled concurrency
-  const results = await runTestsWithConcurrency(allFiles, CONCURRENCY, projectRoot);
+  const results = await runTestsWithConcurrency(allFiles, concurrency, projectRoot);
 
   const totalDuration = Date.now() - startTime;
 
@@ -132,7 +147,7 @@ async function main() {
     process.exit(1);
   } else {
     console.log("✅ All examples validated successfully!\n");
-    console.log(`⚡ Parallel execution (${CONCURRENCY} tests at a time) completed in ${(totalDuration / 60000).toFixed(1)} minutes\n`);
+    console.log(`⚡ Parallel execution (${concurrency} tests at a time) completed in ${(totalDuration / 60000).toFixed(1)} minutes\n`);
     process.exit(0);
   }
 }
